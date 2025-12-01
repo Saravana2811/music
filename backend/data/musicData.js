@@ -14,9 +14,9 @@ const playlists = [
     songs: [
       {
         id: "song-1",
-        title: "Rekka Rekka(From 'Bison')",
+        title: "Vilambara Idaiveli(From 'Imaikkaa Nodigal')",
         artist: "Niva K Prasaana",
-        audioUrl: "/audio/Rekka-Rekka.mp3",
+        audioUrl: "/audio/Vilambara-Idaiveli.mp3",
       },
       {
         id: "song-2",
