@@ -16,7 +16,7 @@ export function PlayerProvider({ children }) {
 
   useEffect(() => {
     // Fetch songs from backend API
-    const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:4000";
+    const API_BASE = import.meta.env.VITE_API_BASE_URL || "https://mv-music-backend.onrender.com";
     const url = `${API_BASE}/api/songs`;
     setLoadingSongs(true);
     fetch(url)
