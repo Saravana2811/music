@@ -1,0 +1,358 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+body {
+  background: #050816;
+  color: #f5f5f5;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.app-body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.app-main {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+}
+
+.navbar {
+  height: 56px;
+  border-bottom: 1px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background: #090b1a;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.nav-link.active {
+  color: #fff;
+  font-weight: 600;
+}
+
+.sidebar {
+  width: 220px;
+  border-right: 1px solid #222;
+  padding: 16px;
+  background: #070816;
+}
+
+.sidebar-title {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #bbb;
+}
+
+.sidebar-list {
+  list-style: none;
+}
+
+.sidebar-item {
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #ddd;
+}
+
+.page-title {
+  font-size: 22px;
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+/* Playlist list in sidebar */
+.sidebar-section-title {
+  font-size: 14px;
+  color: #d1d5db;
+  margin: 8px 0 8px;
+}
+
+.playlist-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.playlist-link.playlist-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #e5e7eb;
+}
+
+.playlist-thumb {
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid #1f2937;
+}
+
+.playlist-name { font-size: 13px; }
+
+.section-title {
+  font-size: 18px;
+  margin: 16px 0 8px;
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+}
+
+.grid-4 {
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+}
+
+.card {
+  background: #111827;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #1f2937;
+}
+
+.card:hover {
+  border-color: #4b5563;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.card-subtitle {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.button {
+  margin-top: 8px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.song-list {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.song-list th,
+.song-list td {
+  font-size: 13px;
+  padding: 8px 6px;
+  border-bottom: 1px solid #1f2937;
+}
+
+.song-list tr:hover {
+  background: #0b1020;
+}
+
+.song-title {
+  cursor: pointer;
+}
+
+.song-title:hover {
+  text-decoration: underline;
+}
+
+.audio-player {
+  height: 72px;
+  border-top: 1px solid #222;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  background: #020617;
+  gap: 16px;
+}
+
+.audio-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.audio-info-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.audio-info-artist {
+  font-size: 12px;
+  color: #9ca3af;
+}
+
+.audio-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon-button {
+  border: none;
+  background: transparent;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.icon-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.audio-slider {
+  width: 160px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #4b5563;
+  background: #020617;
+  color: #e5e7eb;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* Hide horizontal scrollbar for song rows while keeping scrolling functional */
+.song-scroll {
+  /* Keep horizontal scrolling but hide the visible scrollbar */
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  -webkit-overflow-scrolling: touch;
+}
+.song-scroll::-webkit-scrollbar {
+  height: 0; /* Chrome/Safari/WebKit */
+  background: transparent;
+}
+.song-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+/* Additional utility: hide horizontal scrollbar for any container explicitly */
+.hide-h-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-h-scroll::-webkit-scrollbar { height: 0; background: transparent; }
+
+/* Outer wrapper to hide native scrollbar while inner remains scrollable */
+.hide-scroll-outer {
+  overflow: hidden;
+}
+
+.song-scroll-inner {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Artists grid */
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.artist-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.artist-card:hover {
+  transform: translateY(-4px);
+}
+
+.artist-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+  border: 1px solid #1f2937;
+}
+
+.artist-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #e5e7eb;
+}
+
+/* Grid layout for song cards (rows & columns) */
+.song-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.song-card {
+  background: #0b1220;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.02);
+  cursor: pointer;
+}
+
+.song-card-art {
+  width: 100%;
+  padding-bottom: 52%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #0b0f14;
+  margin-bottom: 8px;
+}
+.song-card-art img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.song-card-meta { display: flex; flex-direction: column; gap: 4px; }
+.song-card-title { font-weight: 600; color: #fff; font-size: 15px; }
+.song-card-artist { font-size: 12px; color: #9ca3af; }
